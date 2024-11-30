@@ -28,11 +28,6 @@ class EmployeesController extends Controller
         // dd($request->all());
 
       $data=Employees::create($validateData);
-      //return view('index');
-    //   return response()->json([
-    //   'message'=>'employee created successfully',
-    //   'data'=>$data
-    //   ]);
 
     return redirect()->route('employees.index')->with('success', 'Employee updated successfully.');
     }
@@ -46,26 +41,7 @@ class EmployeesController extends Controller
 }
 
 
-    // public function update(Request $request, $id)
-    // {
-    //     // Validate the incoming data
-    //     $validated = $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|unique:employees,email,' . $id,
-    //         'phone_number' => 'required|string',
-    //         'position' => 'required|string|max:255',
-    //     ]);
-
-    //     // Find the employee by ID
-    //     $employee = Employees::findOrFail($id);
-
-    //     // Update the employee record with the validated data
-    //     $employee->update($validated);
-
-    //     // Return a response
-    //     return response()->json(['message' => 'Employee updated successfully', 'employee' => $employee], 200);
-    // }
-
+    
 
     //for update
     public function update(Request $request, $id)
@@ -85,17 +61,10 @@ class EmployeesController extends Controller
         $employees->update($validated);
 
        return redirect()->route('employees.index')->with('success', 'Employee updated successfully.');
-      // return view('employee.index', compact('employees'));
-    //   return response()->json([
-    //     'message'=>'employee created successfully',
-    //     'data'=>$employees
-    //     ]);
+      
     }
 
-    // public function getUpdateForm()
-    // {
-    //     return view('employee.update');
-    // }
+    
 
     public function getEmployees(Request $request)
     {
